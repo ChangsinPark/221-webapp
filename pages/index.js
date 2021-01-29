@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Title from '../components/Title';
 import Tabled from '../components/Tabled';
 import NewMessageForm from '../components/NewMessageForm';
+import { useState } from 'react';
 
 export default function Home() {
   const data = [  
@@ -20,29 +21,28 @@ export default function Home() {
 // handler for submission of Form in
 // NewMessageForm Component
 const addNewMessage = (values) => {
-    values.id = data.length + 1;
+    values.id = data.length;
     data.unshift(values);
     console.log(data);
   }
 
   return (
     <Container> 
-                <Row>
-                    <Col><Title title="ICS 221 Message Board App" /></Col> 
-                </Row >
-                <Row>
-                  <Col><NewMessageForm addNewMessage={addNewMessage} /></Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Tabled data={data} />
-                    </Col>
-                </Row>
+        <Row>
+            <Col><Title title="ICS 221 Message Board App" /></Col> 
+        </Row >
+        <Row>
+          <Col><NewMessageForm addNewMessage={addNewMessage} /></Col>
+        </Row>
+        <Row>
+            <Col>
+                <Tabled data={data} />
+            </Col>
+        </Row>
 
-                <Row>
-                  <Col className="text-right"><p>&copy;2021 Changsin</p></Col> 
-                </Row>
-            </Container>
-        
+        <Row>
+          <Col className="text-right"><p>&copy;2021 Changsin</p></Col> 
+        </Row>
+    </Container>
   )
 }

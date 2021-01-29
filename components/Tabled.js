@@ -2,14 +2,22 @@ import React from 'react';
 import Table from 'react-bootstrap/Table'; 
 import Message from './Message';
 
+
 class Tabled extends React.Component{
     render() {
-    const rows = [];
-    this.props.data.forEach((msg) => {
-        rows.push(
-            <Message what = {msg} key={msg.id} />
-        );
-    });
+        const rows = [];
+        this.props.data.map( (msg, index) =>{
+            rows.push(
+            <Message what={msg} key={msg.id} {...msg} msgNum={index + 1} />
+            );
+        });
+
+    // const rows = [];
+    // this.props.data.forEach((msg) => {
+    //     rows.push(
+    //         <Message what = {msg} key={msg.id} />
+    //     );
+    // });
     
 
         return (
