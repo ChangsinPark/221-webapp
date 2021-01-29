@@ -16,13 +16,22 @@ export default function Home() {
     { "id": 8, "Name": "Elan", "Message": "Bitcoin is all time high!" },
     { "id": 9, "Name": "Adam", "Message": "I wish." }
 ]
+
+// handler for submission of Form in
+// NewMessageForm Component
+const addNewMessage = (values) => {
+    values.id = data.length + 1;
+    data.unshift(values);
+    console.log(data);
+  }
+
   return (
     <Container> 
                 <Row>
                     <Col><Title title="ICS 221 Message Board App" /></Col> 
                 </Row >
                 <Row>
-                  <Col><NewMessageForm /></Col>
+                  <Col><NewMessageForm addNewMessage={addNewMessage} /></Col>
                 </Row>
                 <Row>
                     <Col>
