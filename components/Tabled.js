@@ -10,9 +10,9 @@ class Tabled extends React.Component{
             <Message what = {msg} key={msg.id} />
         );
     });
+    
 
-
-        return ( 
+        return (
             <Table striped bordered hover>
                 <thead id="chart">
                         <tr>

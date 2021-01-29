@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { Container, Row, Col } from 'react-bootstrap';
 import Title from '../components/Title';
 import Tabled from '../components/Tabled';
+import NewMessageForm from '../components/NewMessageForm';
 
 export default function Home() {
   const data = [  
@@ -20,7 +21,9 @@ export default function Home() {
                 <Row>
                     <Col><Title title="ICS 221 Message Board App" /></Col> 
                 </Row >
-
+                <Row>
+                  <Col><NewMessageForm /></Col>
+                </Row>
                 <Row>
                     <Col>
                         <Tabled data={data} />
@@ -28,7 +31,7 @@ export default function Home() {
                 </Row>
 
                 <Row>
-                  <Col sm="12" md={{ size: 6, offset: 3 }}><p>&copy;2021 Changsin</p></Col> 
+                  <Col className="text-right"><p>&copy;2021 Changsin</p></Col> 
                 </Row>
             </Container>
         
