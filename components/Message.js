@@ -1,9 +1,8 @@
 import React from 'react';
 
-class Message extends React.Component{
-    render(){
-        const msg = this.props.what;
-        const msgNum = this.props.msgNum;
+export default function Message(props) {
+        const msg = props.what;
+        const msgNum = props.msgNum;
 
         return (   
             <tr>
@@ -12,7 +11,6 @@ class Message extends React.Component{
                 <td>{msg.Message}</td>
             </tr> 
         );
-    }   
-}
-export default Message;
+    
+};
 

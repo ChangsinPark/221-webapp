@@ -6,7 +6,7 @@ import NewMessageForm from '../components/NewMessageForm';
 import { useState } from 'react';
 
 export default function Home() {
-  const data = [  
+  const [data, setData] = useState([  
     { "id": 1, "Name": "Willium", "Message": "I graduated the university." },    
     { "id": 2, "Name": "Green", "Message": "I like to challenge my surviving skills in the wild."  },
     { "id": 3, "Name": "Van", "Message": "I was yoging." },
@@ -16,14 +16,15 @@ export default function Home() {
     { "id": 7, "Name": "Mustard", "Message": "Who wants to play basket ball?" },
     { "id": 8, "Name": "Elan", "Message": "Bitcoin is all time high!" },
     { "id": 9, "Name": "Adam", "Message": "I wish." }
-]
+]);
 
 // handler for submission of Form in
 // NewMessageForm Component
 const addNewMessage = (values) => {
     values.id = data.length;
-    data.unshift(values);
-    console.log(data);
+    // data.unshift(values);
+    setData([values, ...data]);
+    console.log(data)
   }
 
   return (
