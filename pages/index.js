@@ -1,65 +1,36 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { Container, Row, Col } from 'react-bootstrap';
+import Title from '../components/Title';
+import Tabled from '../components/Tabled';
 
 export default function Home() {
+  const data = [  
+    { "id": 1, "Name": "Willium", "Message": "I graduated the university." },    
+    { "id": 2, "Name": "Green", "Message": "I like to challenge my surviving skills in the wild."  },
+    { "id": 3, "Name": "Van", "Message": "I was yoging." },
+    { "id": 4, "Name": "Tom", "Message": "Hi"  },
+    { "id": 5, "Name": "Julia", "Message": "I accuse you!" },
+    { "id": 6, "Name": "Bob", "Message": "It is so easy!" },
+    { "id": 7, "Name": "Mustard", "Message": "Who wants to play basket ball?" },
+    { "id": 8, "Name": "Elan", "Message": "Bitcoin is all time high!" },
+    { "id": 9, "Name": "Adam", "Message": "I wish." }
+]
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Container> 
+                <Row>
+                    <Col><Title title="ICS 221 Message Board App" /></Col> 
+                </Row >
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+                <Row>
+                    <Col>
+                        <Tabled data={data} />
+                    </Col>
+                </Row>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+                <Row>
+                  <Col sm="12" md={{ size: 6, offset: 3 }}><p>&copy;2021 Changsin</p></Col> 
+                </Row>
+            </Container>
+        
   )
 }
