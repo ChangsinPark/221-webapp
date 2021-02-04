@@ -3,14 +3,14 @@ import { Formik } from 'formik';
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  Name: yup
+  name: yup
     .string()
     .trim()
     .min(2, 'Your name must be at least ${min} characters.')
     .max(15, 'Your name cannot be more than ${max} characters.')
     .matches(/[A-Za-z]/, 'Invalid name. Use Upper and Lowercase letters only.')
     .required('Your name is required.'),
-  Message: yup
+  msgText: yup
     .string()
     .trim()
     .min(2, 'Your message must be at least ${min} characters.')
@@ -42,7 +42,7 @@ const NewMessageForm = ({ addNewMessage }) => {
         <Formik
           validationSchema={schema}
           onSubmit={handleFormData}
-          initialValues={{ Name: '', Message: '' }}
+          initialValues={{ name: '', msgText: '' }}
         >
           {({
             handleSubmit,
@@ -54,29 +54,29 @@ const NewMessageForm = ({ addNewMessage }) => {
           }) => (
             <Form noValidate onSubmit={handleSubmit}>
               <Row className="align-items-center">
-                <Form.Group as={Col} controlId="Name">
+                <Form.Group as={Col} controlId="name">
                   <Form.Label>Enter a Name:</Form.Label>
                   <Form.Control
                     placeholder="Your name"
-                    value={values.Name}
+                    value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isValid={touched.Name && !errors.Name}
-                    isInvalid={touched.Name && errors.Name}
+                    isValid={touched.name && !errors.name}
+                    isInvalid={touched.name && errors.name}
                   />
                   <Form.Control.Feedback type="invalid">
-                    {errors.Name}
+                    {errors.name}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group as={Col} md={6} controlId="Message">
+                <Form.Group as={Col} md={6} controlId="msgText">
                   <Form.Label>Enter Message:</Form.Label>
                   <Form.Control
                     placeholder="Your message"
-                    value={values.Message}
+                    value={values.msgText}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isValid={touched.Message && !errors.Message}
-                    isInvalid={touched.Message && errors.Message}
+                    isValid={touched.msgText && !errors.msgText}
+                    isInvalid={touched.msgText && errors.msgText}
                   />
                   <Form.Control.Feedback type="invalid">
                     {errors.messageText}

@@ -7,8 +7,8 @@ export default function Message(props) {
         return (   
             <tr>
                 <td>{msgNum}</td>
-                <td>{msg.Name}</td>
-                <td>{msg.Message}</td>
+                <td>{msg.name}</td>
+                <td>{msg.msgText}</td>
             </tr> 
         );
 };

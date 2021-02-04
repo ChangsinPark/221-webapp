@@ -7,15 +7,15 @@ import { useState } from 'react';
 
 export default function Home() {
   const [data, setData] = useState([  
-    { "id": 0, "Name": "Willium", "Message": "I graduated the university." },    
-    { "id": 1, "Name": "Green", "Message": "I like to challenge my surviving skills in the wild."  },
-    { "id": 2, "Name": "Van", "Message": "I was yoging." },
-    { "id": 3, "Name": "Tom", "Message": "Hi"  },
-    { "id": 4, "Name": "Julia", "Message": "I accuse you!" },
-    { "id": 5, "Name": "Bob", "Message": "It is so easy!" },
-    { "id": 6, "Name": "Mustard", "Message": "Who wants to play basket ball?" },
-    { "id": 7, "Name": "Elan", "Message": "Bitcoin is all time high!" },
-    { "id": 8, "Name": "Adam", "Message": "I wish." }
+    { "id": 0, "name": "Willium", "msgText": "I graduated the university." },    
+    { "id": 1, "name": "Green", "msgText": "I like to challenge my surviving skills in the wild."  },
+    { "id": 2, "name": "Van", "msgText": "I was yoging." },
+    { "id": 3, "name": "Tom", "msgText": "Hi"  },
+    { "id": 4, "name": "Julia", "msgText": "I accuse you!" },
+    { "id": 5, "name": "Bob", "msgText": "It is so easy!" },
+    { "id": 6, "name": "Mustard", "msgText": "Who wants to play basket ball?" },
+    { "id": 7, "name": "Elan", "msgText": "Bitcoin is all time high!" },
+    { "id": 8, "name": "Adam", "msgText": "I wish." }
 ]);
 
 // handler for submission of Form in
