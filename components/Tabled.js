@@ -5,12 +5,11 @@ import Message from './Message';
 
 export default function Tabled(props) {
     const rows = [];
-        {
-        props.data.map( (msg, index) =>{
+        {props.data.map((msg, index) =>{
             rows.push(
-                <Message what={msg} key={msg.id} {...msg} msgNum={index + 1} />
-            );
-        });}
+                <Message key={msg.id} {...msg} msgNum={index + 1} />
+            )}
+        )};
 
     // const rows = [];
     // this.props.data.forEach((msg) => {

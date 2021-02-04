@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Message(props) {
-        const msg = props.what;
+        const msg = props;
         const msgNum = props.msgNum;
 
         return (   
@@ -11,6 +11,5 @@ export default function Message(props) {
                 <td>{msg.Message}</td>
             </tr> 
         );
-    
 };
 
