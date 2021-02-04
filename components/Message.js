@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Message(props) {
+const Message = (props) => {
         const msg = props;
         const msgNum = props.msgNum;
 
@@ -13,3 +13,4 @@ export default function Message(props) {
         );
 };
 
+export default Message;

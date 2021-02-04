@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import Message from './Message';
 
 
-export default function Tabled(props) {
+const Tabled = (props) => {
     const rows = [];
         {props.data.map((msg, index) =>{
             rows.push(
@@ -32,3 +32,5 @@ export default function Tabled(props) {
             </Table>
         );
     }
+
+export default Tabled; 
