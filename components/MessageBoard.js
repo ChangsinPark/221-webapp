@@ -21,9 +21,8 @@ const MessageBoard = () => {
 // NewMessageForm Component
 const addNewMessage = (values) => {
     values.id = data.length;
-    // data.unshift(values);
+    values = {'id': values.id, 'name': values.name, 'msgText': values.msgText }
     setData([values, ...data]);
-    console.log(data);
   }
 
   return (
@@ -33,6 +32,7 @@ const addNewMessage = (values) => {
         </Row >
         <Row>
           <Col><NewMessageForm addNewMessage={addNewMessage} /></Col>
+          {console.log(data)}
         </Row>
         <Row>
             <Col>
