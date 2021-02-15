@@ -3,26 +3,25 @@ import Title from './Title';
 import Tabled from './Tabled';
 import NewMessageForm from './NewMessageForm';
 import { useState } from 'react';
+import ky from 'ky-universal';
 
-const MessageBoard = () => {
-  const [data, setData] = useState([  
-    { "id": 0, "name": "Willium", "msgText": "I graduated the university." },    
-    { "id": 1, "name": "Green", "msgText": "I like to challenge my surviving skills in the wild."  },
-    { "id": 2, "name": "Van", "msgText": "I was yoging." },
-    { "id": 3, "name": "Tom", "msgText": "Hi"  },
-    { "id": 4, "name": "Julia", "msgText": "I accuse you!" },
-    { "id": 5, "name": "Bob", "msgText": "It is so easy!" },
-    { "id": 6, "name": "Mustard", "msgText": "Who wants to play basket ball?" },
-    { "id": 7, "name": "Elan", "msgText": "Bitcoin is all time high!" },
-    { "id": 8, "name": "Adam", "msgText": "I wish." }
-]);
+const MessageBoard = ({jsonData}) => {
+  const [data, setData] = useState([...jsonData]);
 
 // handler for submission of Form in
 // NewMessageForm Component
-const addNewMessage = (values) => {
-    values.id = data.length;
-    values = {'id': values.id, 'name': values.name, 'msgText': values.msgText }
-    setData([values, ...data]);
+const addNewMessage = async (values) => {
+    try{
+      const message = await ky.post('http://localhost:3004/api/messages', {
+        json: values
+      }).json();
+      // values.id = jsonData.length;
+      // values = {'id': values.id, 'name': values.name, 'msgText': values.msgText }
+      setData([message, ...data]);
+    } catch (err) {
+      console.log('API error: ' + err);
+    }
+    
   }
 
   return (
