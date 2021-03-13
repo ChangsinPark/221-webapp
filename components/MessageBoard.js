@@ -6,13 +6,13 @@ import { useState } from 'react';
 import ky from 'ky-universal';
 
 const MessageBoard = ({jsonData}) => {
-  const [data, setData] = useState([...jsonData]);
+  const [data, setData] = useState([jsonData]);
 
 // handler for submission of Form in
 // NewMessageForm Component
 const addNewMessage = async (values) => {
     try{
-      const message = await ky.post('http://localhost:3004/api/messages', {
+      const message = await ky.post(`${process.env.NEXT_PUBLIC_HOST}/api/messages`, {
         json: values
       }).json();
       // values.id = jsonData.length;

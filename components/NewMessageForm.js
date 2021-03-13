@@ -79,7 +79,7 @@ const NewMessageForm = ({ addNewMessage }) => {
                     isInvalid={touched.msgText && errors.msgText}
                   />
                   <Form.Control.Feedback type="invalid">
-                    {errors.messageText}
+                    {errors.msgText}
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Col>
