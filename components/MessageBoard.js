@@ -2,12 +2,13 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Title from './Title';
 import Tabled from './Tabled';
 import NewMessageForm from './NewMessageForm';
+import LoginForm from './LoginForm';
 import { useState } from 'react';
 import ky from 'ky-universal';
 
 const MessageBoard = ({jsonData}) => {
-  const [data, setData] = useState([jsonData]);
-
+  const [data, setData] = useState([...jsonData]);
+  const [user, setUser] = useState(false);
 // handler for submission of Form in
 // NewMessageForm Component
 const addNewMessage = async (values) => {
@@ -21,8 +22,12 @@ const addNewMessage = async (values) => {
     } catch (err) {
       console.log('API error: ' + err);
     }
-    
   }
+
+const logInUser = (values) => {
+  console.log(values);
+  setUser(true);
+}
 
   return (
     <Container> 
@@ -30,7 +35,7 @@ const addNewMessage = async (values) => {
             <Col><Title title="ICS 221 Message Board App" /></Col> 
         </Row >
         <Row>
-          <Col><NewMessageForm addNewMessage={addNewMessage} /></Col>
+          <Col>{ user == true ? (<NewMessageForm addNewMessage={addNewMessage}/>) : (<LoginForm logInUser={logInUser}/>)}</Col>
           {console.log(data)}
         </Row>
         <Row>
@@ -38,7 +43,6 @@ const addNewMessage = async (values) => {
                 <Tabled data={data} />
             </Col>
         </Row>
-
         <Row>
           <Col className="text-right"><p>&copy;2021 Changsin</p></Col> 
         </Row>
