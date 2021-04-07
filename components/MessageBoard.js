@@ -8,14 +8,17 @@ import ky from 'ky-universal';
 
 const MessageBoard = ({jsonData}) => {
   const [data, setData] = useState([...jsonData]);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(false)
 // handler for submission of Form in
 // NewMessageForm Component
 const addNewMessage = async (values) => {
     try{
       const message = await ky.post(`${process.env.NEXT_PUBLIC_HOST}/api/messages`, {
-        json: values
-      }).json();
+        json: values,
+          headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+          }
+        }).json();
       // values.id = jsonData.length;
       // values = {'id': values.id, 'name': values.name, 'msgText': values.msgText }
       setData([message, ...data]);
@@ -24,10 +27,18 @@ const addNewMessage = async (values) => {
     }
   }
 
-const logInUser = (values) => {
-  console.log(values);
-  setUser(true);
-}
+const logInUser = async (values) => {
+  try{
+    const logIn = await ky.post(`${process.env.NEXT_PUBLIC_HOST}/api/login`, {
+      json: values
+    }).json();
+    sessionStorage.setItem('token', logIn.token);
+    setUser(true)
+    } catch(err) {
+      console.log('API error: ' + err);
+    }
+  }
+
 
   return (
     <Container> 
